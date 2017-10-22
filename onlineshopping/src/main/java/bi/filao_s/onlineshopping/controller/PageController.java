@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import bi.filao_s.onlineshopping.exception.ProductNotFoundException;
 import bi.filao_s.shoppingbackend.dao.CategoryDAO;
 import bi.filao_s.shoppingbackend.dao.ProductDAO;
 import bi.filao_s.shoppingbackend.dto.Category;
@@ -88,10 +90,12 @@ public class PageController {
 
 	// Viewing the single product
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable int id) {
+	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
 		ModelAndView mv = new ModelAndView("page");
 		Product product = productDAO.get(id);
-
+		if (product == null) {
+			throw new ProductNotFoundException();
+		}
 		// Pour augmenter le nombre de vues
 		product.setViews(product.getViews() + 1);
 
@@ -104,4 +108,28 @@ public class PageController {
 		return mv;
 
 	}
+
+	// For login
+	@RequestMapping(value = "/login")
+	public ModelAndView login(@RequestParam(name="error",required=false)String error) {
+		ModelAndView mv = new ModelAndView("login");
+		
+		if (error!=null) {
+			mv.addObject("message", "Invalid Username and Password!");
+		}
+		
+		mv.addObject("title", "Login");
+		return mv;
+	}
+	
+//	access denied page
+	@RequestMapping(value = { "/access-denied" })
+	public ModelAndView accessDenied() {
+		ModelAndView mv = new ModelAndView("error");
+		mv.addObject("errorTitle", "Aha! Caught You");
+		mv.addObject("title", "403 -Access Denied");
+		mv.addObject("errorDescription", "You are not authorized to view this page!");
+		return mv;
+	}
+
 }

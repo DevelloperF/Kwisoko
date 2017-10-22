@@ -116,5 +116,6 @@ public class ProductDAOImpl implements ProductDAO {
 				.createQuery("FROM Product WHERE active = :active ORDER BY id", Product.class)
 				.setParameter("active", true).setFirstResult(0).setMaxResults(count).getResultList();
 	}
+	
 
 }
