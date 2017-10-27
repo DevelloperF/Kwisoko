@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 public class Cart implements Serializable {
 
 	/**
-	 * 
+	 *  @author Filao NIYOMUKUNZI
 	 */
 	private static final long serialVersionUID = 1L;
 

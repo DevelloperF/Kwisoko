@@ -46,6 +46,11 @@ public class UserModel implements Serializable{
 	public void setCart(Cart cart) {
 		this.cart = cart;
 	}
+	@Override
+	public String toString() {
+		return "UserModel [id=" + id + ", fullName=" + fullName + ", email=" + email + ", role=" + role + ", cart="
+				+ cart + "]";
+	}
 	
 	
 

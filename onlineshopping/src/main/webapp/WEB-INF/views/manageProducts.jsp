@@ -150,39 +150,43 @@
 			<hr />
 		</div>
 		<div class="col-xs-12">
-			<div style="overflow: auto">
-				<table id="adminProductsTable"
-					class="table table-striped table-bordered">
+			<div class="container-fluid">
+				<div class="table-responsive">
 
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Activate</th>
-							<th>Edit</th>
-						</tr>
-					</thead>
+					<table id="adminProductsTable"
+						class="table table-striped table-bordered">
 
-					<tfoot>
-						<tr>
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Activate</th>
-							<th>Edit</th>
-						</tr>
-					</tfoot>
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Activate</th>
+								<th>Edit</th>
+							</tr>
+						</thead>
+
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Activate</th>
+								<th>Edit</th>
+							</tr>
+						</tfoot>
 
 
-				</table>
+					</table>
+				</div>
 			</div>
+
 
 		</div>
 	</div>
@@ -240,5 +244,5 @@
 
 
 	</div>
-
+	<
 </div>

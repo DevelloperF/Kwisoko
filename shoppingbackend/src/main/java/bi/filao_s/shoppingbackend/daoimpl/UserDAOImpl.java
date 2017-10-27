@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bi.filao_s.shoppingbackend.dao.UserDAO;
 import bi.filao_s.shoppingbackend.dto.Address;
-import bi.filao_s.shoppingbackend.dto.Cart;
 import bi.filao_s.shoppingbackend.dto.User;
 
 @Repository("userDAO")
@@ -24,7 +23,7 @@ public class UserDAOImpl implements UserDAO {
 			sessionFactory.getCurrentSession().persist(user);
 			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			return false;
 		}
 	}
@@ -35,22 +34,12 @@ public class UserDAOImpl implements UserDAO {
 			sessionFactory.getCurrentSession().persist(adress);
 			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			return false;
 		}
 	}
 
-	@Override
-	public boolean updateCart(Cart cart) {
-		try {
-			sessionFactory.getCurrentSession().update(cart);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
+	
 	@Override
 	public User getByEmail(String email) {
 		String selectQuery = "FROM User WHERE email=:email";
@@ -59,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
 					.getSingleResult();
 
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			return null;
 		}
 	}
@@ -72,7 +61,7 @@ public class UserDAOImpl implements UserDAO {
 					.setParameter("billing", true).getSingleResult();
 
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			return null;
 		}
 	}
@@ -86,7 +75,7 @@ public class UserDAOImpl implements UserDAO {
 					.setParameter("shipping", true).getResultList();
 
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			return null;
 		}
 	}
